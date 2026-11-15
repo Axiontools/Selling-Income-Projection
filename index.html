@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AXION V3 - Kalkulator Master Asuransi 3 Tahun (FC, BP1, BP2, BP3)</title>
+    <title>AXION V4 - Kalkulator Master Asuransi 3 Tahun (SPI-75/100 MPP 10 &amp; SECURE-60/75 MPP 10)</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,7 +18,7 @@
         }
     </script>
     <!-- Google Font: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Lucide Icons -->
@@ -60,9 +60,9 @@
                 <div class="hidden lg:block">
                     <div class="flex items-center gap-2">
                         <span class="text-xs font-bold uppercase tracking-wider text-orange-600 bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-md">MSIG Life Commission Engine</span>
-                        <span class="text-[11px] font-extrabold text-purple-700 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-md">V3 • FC / BP1 / BP2 / BP3</span>
+                        <span class="text-[11px] font-extrabold text-purple-700 bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-md">V4 • Multi-Produk &amp; Karir</span>
                     </div>
-                    <p class="text-[11px] text-slate-500 mt-1">Proyeksi Income, Bonus, Overriding & Input Closing Bulanan</p>
+                    <p class="text-[11px] text-slate-500 mt-1">Simulasi Produk SPI-75/100 MPP 10 &amp; SECURE-60/75 MPP 10 • Level FC / BP1 / BP2 / BP3</p>
                 </div>
             </div>
 
@@ -70,26 +70,21 @@
             <div class="flex items-center gap-3">
                 <div class="hidden xl:flex items-center gap-3 bg-slate-50 border border-slate-200 px-3.5 py-1.5 rounded-xl text-[11px]">
                     <div>
-                        <span class="text-slate-400 block text-[9px] uppercase font-bold">FC (&gt;200Jt &amp; &ge;6 Bln)</span>
-                        <span class="font-mono font-bold text-slate-700">30% FYC / 20% SYC</span>
+                        <span class="text-slate-400 block text-[9px] uppercase font-bold">MDRT WAPE</span>
+                        <span class="font-mono font-bold text-slate-700">Rp 745,62 Jt</span>
                     </div>
                     <div class="h-6 w-px bg-slate-200"></div>
                     <div>
-                        <span class="text-slate-400 block text-[9px] uppercase font-bold">BP1 (Bln 1)</span>
-                        <span class="font-mono font-bold text-purple-700">30% / 20%</span>
+                        <span class="text-slate-400 block text-[9px] uppercase font-bold">COT WAPE</span>
+                        <span class="font-mono font-bold text-slate-700">Rp 2,24 M</span>
                     </div>
                     <div class="h-6 w-px bg-slate-200"></div>
                     <div>
-                        <span class="text-slate-400 block text-[9px] uppercase font-bold">BP2 (Bln 1)</span>
-                        <span class="font-mono font-bold text-purple-700">50% / 30%</span>
-                    </div>
-                    <div class="h-6 w-px bg-slate-200"></div>
-                    <div>
-                        <span class="text-slate-400 block text-[9px] uppercase font-bold">BP3 (Bln 1)</span>
-                        <span class="font-mono font-bold text-purple-700">70% / 40%</span>
+                        <span class="text-slate-400 block text-[9px] uppercase font-bold">TOT WAPE</span>
+                        <span class="font-mono font-bold text-slate-700">Rp 4,47 M</span>
                     </div>
                 </div>
-                <button onclick="exportSummaryToText()" class="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm transition cursor-pointer">
+                <button type="button" onclick="exportSummaryToText()" class="flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-xs px-4 py-2.5 rounded-xl shadow-sm transition cursor-pointer">
                     <i data-lucide="copy" class="w-4 h-4"></i>
                     <span>Salin Ringkasan</span>
                 </button>
@@ -100,29 +95,96 @@
     <!-- Main Container -->
     <main class="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-        <!-- Section 1: Parameter Inputs & Quick Duplication -->
-        <section class="bg-slate-50/70 border border-slate-200 rounded-2xl p-6 shadow-sm">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200">
+        <!-- Section 1: Product Selector + Parameter Inputs & Quick Duplication -->
+        <section class="bg-slate-50/70 border border-slate-200 rounded-2xl p-6 shadow-sm space-y-6">
+            
+            <!-- Header & Global Controls -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-200">
                 <div>
                     <h1 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
                         <i data-lucide="calculator" class="w-5 h-5 text-orange-600"></i>
-                        Simulasi Produksi Premi, Level Karir & Overriding (3 Tahun)
+                        Simulasi Produksi Premi, Produk, Level Karir &amp; Overriding (3 Tahun)
                     </h1>
                     <p class="text-xs text-slate-500 mt-0.5">
-                        Pilih <strong>Level (FC, BP1, BP2, BP3)</strong>, target premi rata-rata, dan cara bayar per tahun—atau isi langsung nominal <strong>Premi Baru</strong> tiap bulan pada tabel di bawah.
+                        Pilih <strong>Produk Asuransi</strong> terlebih dahulu, atur <strong>Level (FC, BP1, BP2, BP3)</strong>, premi, dan cara bayar—atau isi langsung nominal <strong>Premi Baru</strong> tiap bulan pada tabel.
                     </p>
                 </div>
 
                 <!-- Global Duplication & Reset Controls -->
                 <div class="flex flex-wrap items-center gap-2.5">
-                    <button onclick="duplicateYear1ToAll()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center gap-2 transition cursor-pointer">
+                    <button type="button" onclick="duplicateYear1ToAll()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm flex items-center gap-2 transition cursor-pointer">
                         <i data-lucide="copy-check" class="w-4 h-4"></i>
                         <span>Duplikat Tahun 1 ke Semua (36 Bulan)</span>
                     </button>
-                    <button onclick="resetDefaults()" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold text-xs px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
+                    <button type="button" onclick="resetDefaults()" class="bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-semibold text-xs px-3.5 py-2.5 rounded-xl flex items-center gap-1.5 transition cursor-pointer">
                         <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
-                        <span>Reset (0 &amp; FC)</span>
+                        <span>Reset (0)</span>
                     </button>
+                </div>
+            </div>
+
+            <!-- Prominent Product Selection Bar -->
+            <div class="bg-white border-2 border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm">
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                    <div>
+                        <span class="text-[11px] font-extrabold uppercase tracking-wider text-orange-600 flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            Langkah 1: Pilih Produk Asuransi
+                        </span>
+                        <p class="text-xs text-slate-500 mt-0.5">
+                            Pilihan produk otomatis menyesuaikan persentase <strong>Komisi Prod, FYC Dasar, SYC</strong>, dan <strong>RYC</strong> untuk seluruh 3 tahun.
+                        </p>
+                    </div>
+
+                    <!-- Product Toggle Buttons -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full lg:w-auto">
+                        <!-- Option 1: SPI-75/100 MPP 10 -->
+                        <button type="button" id="btnProdSPI" onclick="selectProduct('SPI75')"
+                            class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-orange-600 bg-orange-50/70 text-left transition cursor-pointer shadow-sm">
+                            <div id="radioProdSPI" class="mt-0.5 w-5 h-5 rounded-full border-2 border-orange-600 flex items-center justify-center shrink-0 bg-white">
+                                <span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-black text-sm text-slate-900">SPI-75/100 MPP 10</span>
+                                    <span id="badgeActiveSPI" class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-orange-600 text-white">Aktif</span>
+                                </div>
+                                <p class="text-[11px] font-mono font-semibold text-slate-600 mt-1">
+                                    Komisi 30% • FYC 25% • SYC 15% • RYC 5%
+                                </p>
+                            </div>
+                        </button>
+
+                        <!-- Option 2: SECURE-60/75 MPP 10 -->
+                        <button type="button" id="btnProdSECURE" onclick="selectProduct('SECURE60')"
+                            class="flex items-start gap-3 p-3.5 rounded-xl border-2 border-slate-200 bg-slate-50/50 hover:border-slate-300 text-left transition cursor-pointer">
+                            <div id="radioProdSECURE" class="mt-0.5 w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0 bg-white">
+                                <span class="w-2.5 h-2.5 rounded-full bg-transparent"></span>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-black text-sm text-slate-900">SECURE-60/75 MPP 10</span>
+                                    <span id="badgeActiveSECURE" class="hidden text-[10px] font-extrabold uppercase px-2 py-0.5 rounded bg-orange-600 text-white">Aktif</span>
+                                </div>
+                                <p class="text-[11px] font-mono font-semibold text-slate-600 mt-1">
+                                    Komisi 25% • FYC 25% • SYC 15% • RYC 10%
+                                </p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Product Rate Summary Banner -->
+                <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <div class="flex flex-wrap items-center gap-2 text-slate-700 font-semibold">
+                        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-900 text-white font-bold text-[11px]">
+                            Produk Terpilih: <span id="activeProductLabel" class="text-orange-400">SPI-75/100 MPP 10</span>
+                        </span>
+                        <span id="activeProductRatesBadge" class="text-[11px] font-mono font-bold text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
+                            Komisi Prod: 30% | FYC Dasar: 25% | SYC: 15% | RYC: 5%
+                        </span>
+                    </div>
+                    <span class="text-[11px] text-slate-500">*Semua aturan Bonus (MPB, MYB, YEB, MCB, Extra Comm, Persistency) &amp; Overriding (OR) tetap berlaku penuh.</span>
                 </div>
             </div>
 
@@ -199,7 +261,7 @@
                             <span class="w-6 h-6 rounded-lg bg-emerald-100 text-emerald-700 font-extrabold text-xs flex items-center justify-center">2</span>
                             <h2 class="font-extrabold text-slate-900 text-sm">TAHUN KE-2</h2>
                         </div>
-                        <button onclick="copyPrevYear(1, 2)" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 flex items-center gap-1 transition cursor-pointer" title="Duplikat Level, Premi & Cara Bayar dari Tahun 1">
+                        <button type="button" onclick="copyPrevYear(1, 2)" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 flex items-center gap-1 transition cursor-pointer" title="Duplikat Level, Premi & Cara Bayar dari Tahun 1">
                             <i data-lucide="copy" class="w-3 h-3"></i> Same as Thn 1
                         </button>
                     </div>
@@ -264,7 +326,7 @@
                             <span class="w-6 h-6 rounded-lg bg-orange-100 text-orange-700 font-extrabold text-xs flex items-center justify-center">3</span>
                             <h2 class="font-extrabold text-slate-900 text-sm">TAHUN KE-3</h2>
                         </div>
-                        <button onclick="copyPrevYear(2, 3)" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 flex items-center gap-1 transition cursor-pointer" title="Duplikat Level, Premi & Cara Bayar dari Tahun 2">
+                        <button type="button" onclick="copyPrevYear(2, 3)" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 flex items-center gap-1 transition cursor-pointer" title="Duplikat Level, Premi & Cara Bayar dari Tahun 2">
                             <i data-lucide="copy" class="w-3 h-3"></i> Same as Thn 2
                         </button>
                     </div>
@@ -397,9 +459,9 @@
                 <div>
                     <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
                         <i data-lucide="bar-chart-3" class="w-5 h-5 text-orange-600"></i>
-                        Grafik Proyeksi Income & Overriding Bulanan (Bulan 1 - 36)
+                        Grafik Proyeksi Income &amp; Overriding Bulanan (Bulan 1 - 36)
                     </h3>
-                    <p class="text-xs text-slate-500">Memisahkan komisi/bonus reguler dengan Overriding Tahun ke-1 (NB) dan Tahun ke-2 (SYC) sesuai level jabatan.</p>
+                    <p class="text-xs text-slate-500">Memisahkan komisi/bonus reguler dengan Overriding Tahun ke-1 (NB) dan Tahun ke-2 (SYC) sesuai produk &amp; level jabatan.</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-3 text-xs font-semibold">
                     <span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-full bg-blue-600"></span> Reguler Thn 1</span>
@@ -419,7 +481,7 @@
                 <div>
                     <h3 class="text-base font-extrabold text-slate-900 flex items-center gap-2">
                         <i data-lucide="table-2" class="w-5 h-5 text-orange-600"></i>
-                        Tabel Rincian Komisi, Bonus & Overriding (36 Bulan)
+                        Tabel Rincian Komisi, Bonus &amp; Overriding (36 Bulan)
                     </h3>
                     <p class="text-xs text-slate-500">
                         <span class="inline-flex items-center gap-1 font-semibold text-orange-700 bg-orange-50 px-2 py-0.5 rounded border border-orange-200"><i data-lucide="edit-3" class="w-3 h-3"></i> Kolom Premi Baru (Rp) dapat diisi manual per bulan</span> untuk menyimulasikan closing yang berbeda tiap bulannya.
@@ -442,8 +504,8 @@
                             <th class="p-3 text-right bg-amber-50/90 text-amber-950 border-x border-amber-200">Premi Baru (Rp)<br><span class="text-[10px] font-normal text-amber-700">(Edit Manual / Bln)</span></th>
                             <th class="p-3 text-right">WAPE</th>
                             <th class="p-3 text-right">Komisi Prod</th>
-                            <th class="p-3 text-right">SYC (15%)</th>
-                            <th class="p-3 text-right">RYC (5%)</th>
+                            <th id="thSycHeader" class="p-3 text-right">SYC (15%)</th>
+                            <th id="thRycHeader" class="p-3 text-right">RYC (5%)</th>
                             <th class="p-3 text-right">MPB</th>
                             <th class="p-3 text-right">MYB (Jun)</th>
                             <th class="p-3 text-right">YEB (Des)</th>
@@ -468,7 +530,7 @@
     <footer class="border-t border-slate-200 bg-slate-50 mt-12 py-6 text-center text-xs text-slate-500">
         <div class="max-w-[95rem] mx-auto px-4">
             <p class="font-semibold text-slate-700">AXION Agency — Where Dreams Find Home</p>
-            <p class="mt-1">Kalkulator Proyeksi Income, Level Karir (FC / BP1 / BP2 / BP3) & Overriding 3 Tahun (MSIG Life).</p>
+            <p class="mt-1">Kalkulator Proyeksi Income Produk (SPI-75/100 MPP 10 &amp; SECURE-60/75 MPP 10), Level Karir &amp; Overriding 3 Tahun (MSIG Life).</p>
         </div>
     </footer>
 
@@ -480,7 +542,32 @@
 
     <!-- Formula & Interactive Logic -->
     <script>
-        const BULAN = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        const BULAN = [
+            "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+            "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+        ];
+
+        const PRODUCT_CONFIG = {
+            SPI75: {
+                key: 'SPI75',
+                name: 'SPI-75/100 MPP 10',
+                komisiProd: 0.30,
+                fycDasar: 0.25,
+                sycRate: 0.15,
+                rycRate: 0.05,
+                summaryBadge: 'Komisi Prod: 30% | FYC Dasar: 25% | SYC: 15% | RYC: 5%'
+            },
+            SECURE60: {
+                key: 'SECURE60',
+                name: 'SECURE-60/75 MPP 10',
+                komisiProd: 0.25,
+                fycDasar: 0.25,
+                sycRate: 0.15,
+                rycRate: 0.10,
+                summaryBadge: 'Komisi Prod: 25% | FYC Dasar: 25% | SYC: 15% | RYC: 10%'
+            }
+        };
+
         const LEVEL_CONFIG = {
             FC:  { or1Rate: 0.30, or2Rate: 0.20, requiresCondition: true,  hint: "OR: 30% FYC / 20% SYC (>200Jt & ≥6 Bln)" },
             BP1: { or1Rate: 0.30, or2Rate: 0.20, requiresCondition: false, hint: "OR Aktif Bln 1: 30% FYC NB / 20% SYC" },
@@ -488,12 +575,16 @@
             BP3: { or1Rate: 0.70, or2Rate: 0.40, requiresCondition: false, hint: "OR Aktif Bln 1: 70% FYC NB / 40% SYC" }
         };
 
-        // Store 36 individual monthly Premi Baru values so manual monthly edits persist accurately
+        let currentProductKey = 'SPI75';
         let monthlyPremis = new Array(36).fill(0);
         let chartInstance = null;
 
         function formatIDR(val) {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(Math.round(val));
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                maximumFractionDigits: 0
+            }).format(Math.round(val));
         }
 
         function formatShortIDR(val) {
@@ -510,6 +601,56 @@
             return "Reguler";
         }
 
+        function selectProduct(prodKey, notify = true) {
+            const prod = PRODUCT_CONFIG[prodKey] || PRODUCT_CONFIG.SPI75;
+            currentProductKey = prod.key;
+
+            const btnSPI = document.getElementById('btnProdSPI');
+            const radioSPI = document.getElementById('radioProdSPI');
+            const badgeSPI = document.getElementById('badgeActiveSPI');
+
+            const btnSEC = document.getElementById('btnProdSECURE');
+            const radioSEC = document.getElementById('radioProdSECURE');
+            const badgeSEC = document.getElementById('badgeActiveSECURE');
+
+            if (prod.key === 'SPI75') {
+                btnSPI.className = "flex items-start gap-3 p-3.5 rounded-xl border-2 border-orange-600 bg-orange-50/70 text-left transition cursor-pointer shadow-sm";
+                radioSPI.className = "mt-0.5 w-5 h-5 rounded-full border-2 border-orange-600 flex items-center justify-center shrink-0 bg-white";
+                radioSPI.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>';
+                badgeSPI.classList.remove('hidden');
+
+                btnSEC.className = "flex items-start gap-3 p-3.5 rounded-xl border-2 border-slate-200 bg-slate-50/50 hover:border-slate-300 text-left transition cursor-pointer";
+                radioSEC.className = "mt-0.5 w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0 bg-white";
+                radioSEC.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-transparent"></span>';
+                badgeSEC.classList.add('hidden');
+            } else {
+                btnSEC.className = "flex items-start gap-3 p-3.5 rounded-xl border-2 border-orange-600 bg-orange-50/70 text-left transition cursor-pointer shadow-sm";
+                radioSEC.className = "mt-0.5 w-5 h-5 rounded-full border-2 border-orange-600 flex items-center justify-center shrink-0 bg-white";
+                radioSEC.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-orange-600"></span>';
+                badgeSEC.classList.remove('hidden');
+
+                btnSPI.className = "flex items-start gap-3 p-3.5 rounded-xl border-2 border-slate-200 bg-slate-50/50 hover:border-slate-300 text-left transition cursor-pointer";
+                radioSPI.className = "mt-0.5 w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0 bg-white";
+                radioSPI.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-transparent"></span>';
+                badgeSPI.classList.add('hidden');
+            }
+
+            document.getElementById('activeProductLabel').innerText = prod.name;
+            document.getElementById('activeProductRatesBadge').innerText = prod.summaryBadge;
+            document.getElementById('thSycHeader').innerText = `SYC (${Math.round(prod.sycRate * 100)}%)`;
+            document.getElementById('thRycHeader').innerText = `RYC (${Math.round(prod.rycRate * 100)}%)`;
+
+            for (let y = 1; y <= 3; y++) {
+                document.getElementById(`komisiProdY${y}`).value = prod.komisiProd.toFixed(2);
+                document.getElementById(`fycDasarY${y}`).value = prod.fycDasar.toFixed(2);
+            }
+
+            calculateProjections();
+            if (notify) {
+                showToast(`Produk ${prod.name} dipilih (Komisi ${Math.round(prod.komisiProd * 100)}%, FYC ${Math.round(prod.fycDasar * 100)}%, SYC ${Math.round(prod.sycRate * 100)}%, RYC ${Math.round(prod.rycRate * 100)}%)!`);
+            }
+        }
+
         function updateLevelHints() {
             for (let y = 1; y <= 3; y++) {
                 const lvl = document.getElementById(`levelY${y}`).value;
@@ -519,12 +660,11 @@
             }
         }
 
-        function onYearLevelChange(yearNum) {
+        function onYearLevelChange() {
             updateLevelHints();
             calculateProjections();
         }
 
-        // When top yearly Premi Baru input is edited, fill all 12 months of that year
         function applyYearPremiToMonths(yearNum) {
             const val = parseFloat(document.getElementById(`premiY${yearNum}`).value) || 0;
             const startIdx = (yearNum - 1) * 12;
@@ -534,16 +674,17 @@
             calculateProjections();
         }
 
-        // When an individual month's Premi Baru input in the table is edited manually
         function onMonthlyPremiInput(globalIdx, inputEl) {
             const val = parseFloat(inputEl.value) || 0;
             monthlyPremis[globalIdx] = val;
-            // Recompute without destroying focus on the active input cell
             calculateProjections(globalIdx);
         }
 
         function calculateProjections(focusedMonthIdx = null) {
             updateLevelHints();
+            const prod = PRODUCT_CONFIG[currentProductKey] || PRODUCT_CONFIG.SPI75;
+            const sycRate = prod.sycRate;
+            const rycRate = prod.rycRate;
 
             const yearConfigs = [
                 {
@@ -566,7 +707,6 @@
                 }
             ];
 
-            // Update mini average/monthly labels on input cards
             for (let y = 1; y <= 3; y++) {
                 const slice = monthlyPremis.slice((y - 1) * 12, y * 12);
                 const avgPremi = slice.reduce((a, b) => a + b, 0) / 12;
@@ -576,7 +716,6 @@
                     : `Rata2: ${formatShortIDR(avgPremi)}`;
             }
 
-            // Build 36-month base arrays
             const monthsData = [];
             let cumulativeWape = 0;
 
@@ -586,7 +725,7 @@
 
                 for (let m = 0; m < 12; m++) {
                     const globalIdx = y * 12 + m;
-                    const globalMonth = globalIdx + 1; // 1 to 36 (Juni Thn 1 = 6)
+                    const globalMonth = globalIdx + 1;
                     const premi = monthlyPremis[globalIdx];
                     const wape = cfg.caraBayar === "Tahunan" ? premi : premi * 12;
                     cumulativeWape += wape;
@@ -611,27 +750,24 @@
                 }
             }
 
-            // Annual WAPE totals for Extra Comm check
             const annualWapes = [
                 monthsData.slice(0, 12).reduce((sum, r) => sum + r.wape, 0),
                 monthsData.slice(12, 24).reduce((sum, r) => sum + r.wape, 0),
                 monthsData.slice(24, 36).reduce((sum, r) => sum + r.wape, 0)
             ];
 
-            // Calculate all commission, bonus & overriding components across 36 months
             for (let i = 0; i < 36; i++) {
                 const cur = monthsData[i];
                 const y = cur.yearNum - 1;
                 const m = cur.monthIdx;
+                const yearStartIdx = y * 12;
 
-                // 1. Komisi Penjualan (FYC):
-                // Tahunan: premi * komisiProdRate
-                // Bulanan: 12-month rolling sum of (premi * komisiProdRate) for Bulanan cohorts
+                // 1. Komisi Penjualan (FYC)
                 if (cur.caraBayar === "Tahunan") {
                     cur.komisiPenjualan = cur.premi * cur.komisiProdRate;
                 } else {
                     let sumRolling = 0;
-                    const startIdx = Math.max(0, i - 11);
+                    const startIdx = Math.max(yearStartIdx, i - 11);
                     for (let k = startIdx; k <= i; k++) {
                         if (monthsData[k].caraBayar === "Bulanan") {
                             sumRolling += monthsData[k].premi * monthsData[k].komisiProdRate;
@@ -646,31 +782,31 @@
                     const prevIdx = i - 12;
                     const prevCohort = monthsData[prevIdx];
                     if (prevCohort.caraBayar === "Tahunan") {
-                        cur.syc = prevCohort.premi * 0.15;
+                        cur.syc = prevCohort.premi * sycRate;
                     } else {
                         let sumSycRolling = 0;
                         const prevYearStart = (y - 1) * 12;
                         for (let k = prevYearStart; k <= prevIdx; k++) {
                             if (monthsData[k].caraBayar === "Bulanan") {
-                                sumSycRolling += monthsData[k].premi * 0.15;
+                                sumSycRolling += monthsData[k].premi * sycRate;
                             }
                         }
                         cur.syc = sumSycRolling;
                     }
                 }
 
-                // 3. Komisi RYC (5%): Year 3 from Year 1
+                // 3. Komisi RYC (5% SPI-75/100 MPP 10, 10% SECURE-60/75 MPP 10): Year 3 from Year 1
                 cur.ryc = 0;
                 if (y === 2) {
                     const y1Idx = i - 24;
                     const y1Cohort = monthsData[y1Idx];
                     if (y1Cohort.caraBayar === "Tahunan") {
-                        cur.ryc = y1Cohort.premi * 0.05;
+                        cur.ryc = y1Cohort.premi * rycRate;
                     } else {
                         let sumRycRolling = 0;
                         for (let k = 0; k <= y1Idx; k++) {
                             if (monthsData[k].caraBayar === "Bulanan") {
-                                sumRycRolling += monthsData[k].premi * 0.05;
+                                sumRycRolling += monthsData[k].premi * rycRate;
                             }
                         }
                         cur.ryc = sumRycRolling;
@@ -686,7 +822,7 @@
                 // 5. Bonus MYB (Paid in June -> m === 5)
                 cur.myb = 0;
                 if (m === 5) {
-                    const janToJun = monthsData.slice(y * 12, y * 12 + 6);
+                    const janToJun = monthsData.slice(yearStartIdx, yearStartIdx + 6);
                     const sem1Wape = janToJun.reduce((s, r) => s + r.wape, 0);
                     const sem1Fyc = janToJun.reduce((s, r) => s + r.fycDasarRp, 0);
                     const sem1Mpb = janToJun.reduce((s, r) => s + r.mpb, 0);
@@ -702,7 +838,7 @@
                 // 6. Bonus YEB (Paid in December -> m === 11)
                 cur.yeb = 0;
                 if (m === 11) {
-                    const janToDec = monthsData.slice(y * 12, y * 12 + 12);
+                    const janToDec = monthsData.slice(yearStartIdx, yearStartIdx + 12);
                     const fullWape = janToDec.reduce((s, r) => s + r.wape, 0);
                     const fullFyc = janToDec.reduce((s, r) => s + r.fycDasarRp, 0);
                     const fullMpb = janToDec.reduce((s, r) => s + r.mpb, 0);
@@ -728,7 +864,7 @@
                 else if (cur.streak >= 3) mcbMult = 0.25;
                 cur.mcb = mcbMult * cur.mpb;
 
-                // 8. Extra Commission (based on previous year's total WAPE)
+                // 8. Extra Commission
                 cur.extraComm = 0;
                 if (y >= 1) {
                     const prevWape = annualWapes[y - 1];
@@ -739,11 +875,7 @@
                     cur.extraComm = extraRate * cur.fycDasarRp;
                 }
 
-                // 9. Overriding Thn 1 (New Business):
-                // FC: Aktif jika WAPE akumulasi > 200 Juta DAN minimal 6 bulan bergabung (globalMonth >= 6) -> 30% FYC Dasar
-                // BP1: Langsung aktif dari bulan pertama -> 30% FYC Dasar
-                // BP2: Langsung aktif dari bulan pertama -> 50% FYC Dasar
-                // BP3: Langsung aktif dari bulan pertama -> 70% FYC Dasar
+                // 9. Overriding Thn 1 (New Business)
                 cur.orQualifiedNB = cur.lvlRule.requiresCondition
                     ? (cur.cumulativeWape > 200000000 && cur.globalMonth >= 6)
                     : true;
@@ -752,7 +884,7 @@
                     cur.orYear1 = cur.orQualifiedNB ? (cur.lvlRule.or1Rate * cur.fycDasarRp) : 0;
                 } else {
                     let sumOr1Rolling = 0;
-                    const startIdx = Math.max(0, i - 11);
+                    const startIdx = Math.max(yearStartIdx, i - 11);
                     for (let k = startIdx; k <= i; k++) {
                         const cohort = monthsData[k];
                         if (cohort.caraBayar === "Bulanan" && cohort.orQualifiedNB) {
@@ -762,16 +894,14 @@
                     cur.orYear1 = sumOr1Rolling;
                 }
 
-                // 10. Overriding Thn 2 (Hasil pembayaran tahun ke-2 / SYC):
-                // FC (qualified): 20% dari SYC
-                // BP1: 20% dari SYC | BP2: 30% dari SYC | BP3: 40% dari SYC
+                // 10. Overriding Thn 2 (SYC)
                 cur.orYear2 = 0;
                 if (y === 1 || y === 2) {
                     const prevIdx = i - 12;
                     const prevCohort = monthsData[prevIdx];
                     if (prevCohort.caraBayar === "Tahunan") {
                         if (prevCohort.orQualifiedNB) {
-                            cur.orYear2 = prevCohort.lvlRule.or2Rate * (prevCohort.premi * 0.15);
+                            cur.orYear2 = prevCohort.lvlRule.or2Rate * (prevCohort.premi * sycRate);
                         }
                     } else {
                         let sumOr2Rolling = 0;
@@ -779,7 +909,7 @@
                         for (let k = prevYearStart; k <= prevIdx; k++) {
                             const cohort = monthsData[k];
                             if (cohort.caraBayar === "Bulanan" && cohort.orQualifiedNB) {
-                                sumOr2Rolling += cohort.lvlRule.or2Rate * (cohort.premi * 0.15);
+                                sumOr2Rolling += cohort.lvlRule.or2Rate * (cohort.premi * sycRate);
                             }
                         }
                         cur.orYear2 = sumOr2Rolling;
@@ -793,7 +923,6 @@
             const totalSycYear2 = monthsData.slice(12, 24).reduce((sum, r) => sum + r.syc, 0);
             monthsData[26].persistencyBonus = totalSycYear2 * 0.30;
 
-            // Calculate Total Monthly Income
             monthsData.forEach(r => {
                 r.regularIncome = r.komisiPenjualan + r.syc + r.ryc + r.mpb + r.myb + r.yeb + r.mcb + r.extraComm + r.persistencyBonus;
                 r.totalIncome = r.regularIncome + r.orYear1 + r.orYear2;
@@ -878,7 +1007,6 @@
                     `;
                 });
 
-                // Subtotal row immediately after December of Year y
                 const subPremi = yearRows.reduce((a, b) => a + b.premi, 0);
                 const subWape = yearRows.reduce((a, b) => a + b.wape, 0);
                 const subKomisiProd = yearRows.reduce((a, b) => a + b.komisiPenjualan, 0);
@@ -922,9 +1050,10 @@
             }
 
             tbody.innerHTML = html;
-            lucide.createIcons();
+            if (window.lucide) {
+                lucide.createIcons();
+            }
 
-            // Restore focus and cursor position when typing directly into a monthly Premi Baru input
             if (focusedMonthIdx !== null) {
                 const activeInput = document.getElementById(`monthPremiInput_${focusedMonthIdx}`);
                 if (activeInput) {
@@ -969,7 +1098,10 @@
         }
 
         function renderChart(rows) {
-            const ctx = document.getElementById('incomeChart').getContext('2d');
+            const canvasEl = document.getElementById('incomeChart');
+            if (!canvasEl || typeof Chart === 'undefined') return;
+
+            const ctx = canvasEl.getContext('2d');
             const labels = rows.map(r => `T${r.yearNum} ${r.monthName.substring(0, 3)}`);
             const dataRegular = rows.map(r => r.regularIncome);
             const dataOverriding = rows.map(r => r.orYear1 + r.orYear2);
@@ -1036,7 +1168,6 @@
             });
         }
 
-        // Duplicate Year 1 (Level, Premi, Cara Bayar & Rates) across all 36 months
         function duplicateYear1ToAll() {
             copyPrevYear(1, 2, false);
             copyPrevYear(1, 3, false);
@@ -1051,7 +1182,6 @@
             document.getElementById(`fycDasarY${targetYear}`).value = document.getElementById(`fycDasarY${sourceYear}`).value;
             document.getElementById(`caraBayarY${targetYear}`).value = document.getElementById(`caraBayarY${sourceYear}`).value;
 
-            // Also copy all 12 monthly Premi Baru values from sourceYear to targetYear
             const srcStart = (sourceYear - 1) * 12;
             const tgtStart = (targetYear - 1) * 12;
             for (let m = 0; m < 12; m++) {
@@ -1068,17 +1198,15 @@
             for (let y = 1; y <= 3; y++) {
                 document.getElementById(`levelY${y}`).value = "FC";
                 document.getElementById(`premiY${y}`).value = 0;
-                document.getElementById(`komisiProdY${y}`).value = 0.30;
-                document.getElementById(`fycDasarY${y}`).value = 0.25;
                 document.getElementById(`caraBayarY${y}`).value = "Tahunan";
             }
             monthlyPremis.fill(0);
-
-            calculateProjections();
-            showToast("Semua level di-reset ke FC, premi ke 0, dan cara bayar ke Tahunan!");
+            selectProduct('SPI75', false);
+            showToast("Reset selesai: Produk SPI-75/100 MPP 10, Level FC, Premi 0, Cara Bayar Tahunan!");
         }
 
         function exportSummaryToText() {
+            const prod = PRODUCT_CONFIG[currentProductKey] || PRODUCT_CONFIG.SPI75;
             const lvl1 = document.getElementById('levelY1').value;
             const lvl2 = document.getElementById('levelY2').value;
             const lvl3 = document.getElementById('levelY3').value;
@@ -1093,7 +1221,8 @@
 
             const text =
 `AXION AGENCY — Where Dreams Find Home
-PROYEKSI INCOME & OVERRIDING 3 TAHUN (V3)
+PROYEKSI INCOME & OVERRIDING 3 TAHUN (V4)
+Produk: ${prod.name} (${prod.summaryBadge})
 =================================================
 • Total Income Tahun Ke-1 (${lvl1}) : ${incY1}
 • Total Income Tahun Ke-2 (${lvl2}) : ${incY2}
@@ -1110,7 +1239,7 @@ PROYEKSI INCOME & OVERRIDING 3 TAHUN (V3)
             document.execCommand('copy');
             document.body.removeChild(tempInput);
 
-            showToast("Ringkasan proyeksi V3 berhasil disalin!");
+            showToast("Ringkasan proyeksi V4 berhasil disalin!");
         }
 
         function showToast(msg) {
@@ -1123,8 +1252,10 @@ PROYEKSI INCOME & OVERRIDING 3 TAHUN (V3)
         }
 
         window.onload = function() {
-            lucide.createIcons();
-            calculateProjections();
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+            selectProduct('SPI75', false);
         };
     </script>
 </body>
